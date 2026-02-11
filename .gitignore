@@ -1,0 +1,6 @@
+build-rpi/cache
+build-rpi/downloads 
+build-rpi/sstate-cache
+build-rpi/tmp
+meta-raspberrypi
+poky
