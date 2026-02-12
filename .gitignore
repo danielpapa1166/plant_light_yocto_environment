@@ -2,5 +2,14 @@ build-rpi/cache
 build-rpi/downloads 
 build-rpi/sstate-cache
 build-rpi/tmp
+build-rpi/bitbake-cookerdaemon.log
+build-rpi/bitbake.lock
+build-rpi/bitbake.sock
+build-rpi/hashserve.sock
 meta-raspberrypi
 poky
+*.o
+meta-Robert/recipes-kernel
+meta-Robert/recipes-core
+meta-Robert/recipes-connectivity
+meta-Robert/COPYING.MIT
