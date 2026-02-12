@@ -11,5 +11,4 @@ poky
 *.o
 meta-Robert/recipes-kernel
 meta-Robert/recipes-core
-meta-Robert/recipes-connectivity
 meta-Robert/COPYING.MIT
