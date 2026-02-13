@@ -9,7 +9,5 @@ build-rpi/hashserve.sock
 meta-raspberrypi
 poky
 *.o
-meta-Robert/recipes-kernel/gpio_chardev
 meta-Robert/recipes-core/plant_light_backend
 meta-Robert/recipes-core/plant_light_frontend
-meta-Robert/COPYING.MIT
