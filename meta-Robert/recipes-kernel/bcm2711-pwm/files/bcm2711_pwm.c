@@ -18,6 +18,13 @@ static const struct of_device_id bcm_dt_ids[] = {
 };
 MODULE_DEVICE_TABLE(of, bcm_dt_ids);
 
+static int bcm2711_pwm_probe(struct platform_device *pdev);
+static int bcm2711_pwm_remove(struct platform_device *pdev);
+static int bcm2711_pwm_apply(struct pwm_chip *chip,
+                             struct pwm_device *pwm,
+                             const struct pwm_state *state); 
+
+                
 
 static struct platform_driver bcm2711_pwm_driver = {
     .driver = {
@@ -25,6 +32,7 @@ static struct platform_driver bcm2711_pwm_driver = {
         .of_match_table = bcm_dt_ids,
     },
     .probe = bcm2711_pwm_probe,
+    .remove = bcm2711_pwm_remove,
 };
 
 
@@ -45,8 +53,9 @@ static inline struct bcm2711_pwm * to_bcm(struct pwm_chip *chip) {
 
 static int bcm2711_pwm_apply(struct pwm_chip *chip,
                              struct pwm_device *pwm,
-                             const struct pwm_state *state)
-{
+                             const struct pwm_state *state) {
+
+    pr_info("bcm2711_pwm_apply called \n");  
     struct bcm2711_pwm *priv = to_bcm(chip);
     u32 period_cycles;
     u32 duty_cycles;
@@ -71,8 +80,8 @@ static int bcm2711_pwm_apply(struct pwm_chip *chip,
 }
 
 
-static int bcm2711_pwm_probe(struct platform_device *pdev)
-{
+static int bcm2711_pwm_probe(struct platform_device *pdev) {
+    pr_info("bcm2711_pwm: probe() called for device %s\n", dev_name(&pdev->dev));
     struct bcm2711_pwm *priv;
     struct resource *res;
 
@@ -99,4 +108,9 @@ static int bcm2711_pwm_probe(struct platform_device *pdev)
     priv->chip.npwm = 1;
 
     return devm_pwmchip_add(&pdev->dev, &priv->chip);
+}
+
+static int bcm2711_pwm_remove(struct platform_device *pdev) {
+    pr_info("bcm2711_pwm: remove() called\n");
+    return 0; 
 }
