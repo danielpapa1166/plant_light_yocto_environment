@@ -13,8 +13,6 @@ IMAGE_INSTALL:append = "    \
     bcm2711-pwm             \
 "
 
-# ez lett kiszedve linux kötőjel firmware 
-
 SYSTEMD_AUTO_ENABLE:pn-openssh = "enable"
 SYSTEMD_AUTO_ENABLE:pn-systemd-networkd = "enable"
 
