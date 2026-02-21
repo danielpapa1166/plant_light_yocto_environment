@@ -15,6 +15,7 @@
 static const struct of_device_id bcm_dt_ids[] = {
     // bind to the existing PWM controller: 
     { .compatible = "brcm,bcm2835-pwm", }, 
+    { .compatible = "brcm,bcm2711-pwm" },
     { }
 };
 MODULE_DEVICE_TABLE(of, bcm_dt_ids);
