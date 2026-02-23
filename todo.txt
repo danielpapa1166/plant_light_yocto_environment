@@ -1,0 +1,2 @@
+link memtester repo as a submodule
+create CPU loader to stress-test the cpu 
