@@ -7,6 +7,7 @@ SRC_URI = "file://bcm2711-pwm-overlay.dts"
 
 S = "${WORKDIR}"
 
+# todo: check this file, debug during build with console log .. 
 do_compile() {
     dtc -@ -I dts -O dtb -o bcm2711-pwm-overlay.dtbo \
         bcm2711-pwm-overlay.dts
