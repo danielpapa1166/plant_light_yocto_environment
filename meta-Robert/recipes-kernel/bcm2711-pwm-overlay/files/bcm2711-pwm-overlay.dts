@@ -1,17 +1,38 @@
 /dts-v1/;
 /plugin/;
 
+// build manually with: 
+// dtc -@ -I dts -O dtb -o bcm2711-pwm-overlay.dtbo bcm2711-pwm-overlay.dts
+// note: dts still needs to be manually uploaded to the target
+
 / {
     compatible = "brcm,bcm2711";
     
     fragment@0 {
         target-path = "/";
         __overlay__ {
-            pwm@7e20c000 {
-                compatible = "brcm,bcm2835-pwm";
-                reg = <0x7e20c000 0xa8>;
-                clocks = <&clocks 30>;
-                status = "okay";
+            soc {
+                #address-cells = <1>;
+                #size-cells = <1>;
+                pwm@7e20c000 {
+                    compatible = "brcm,bcm2835-pwm";
+                    reg = <0x7e20c000 0x28>;
+                    clocks = <&clocks 30>;
+                    pinctrl-names = "default";
+                    pinctrl-0 = <&pwm0_pins>;
+                    status = "okay";
+                };
+            };
+        };
+    };
+    
+    fragment@1 {
+        target = <&gpio>;
+        __overlay__ {
+            pwm0_pins: pwm0_pins {
+                brcm,pins = <12>;
+                brcm,function = <4>;  /* ALT0 = PWM0 */
+                brcm,pull = <0>;      /* No pull */
             };
         };
     };

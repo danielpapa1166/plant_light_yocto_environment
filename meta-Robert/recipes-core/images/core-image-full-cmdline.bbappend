@@ -11,6 +11,7 @@ IMAGE_INSTALL:append = "    \
     firmware-brcm           \
     plant-light-backend     \
     bcm2711-pwm             \
+    bcm2711-pwm-overlay     \
 "
 
 SYSTEMD_AUTO_ENABLE:pn-openssh = "enable"
