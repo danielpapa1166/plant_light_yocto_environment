@@ -4,8 +4,6 @@
 #include <linux/io.h>
 #include <linux/of.h>
 #include <linux/clk.h>
-#include <linux/gpio.h>
-#include <linux/pinctrl/consumer.h>
 
 #define DRIVER_NAME "bcm2711-pwm"
 
