@@ -12,6 +12,8 @@ IMAGE_INSTALL:append = "    \
     plant-light-backend     \
     bcm2711-pwm             \
     bcm2711-pwm-overlay     \
+    pwm-control-lib         \
+    pwm-control-native-app  \
 "
 
 SYSTEMD_AUTO_ENABLE:pn-openssh = "enable"
