@@ -5,8 +5,11 @@ SRC_URI = "file://pwm_control.c file://pwm_control.h"
 
 S = "${WORKDIR}"
 
+# Define compilation time macro
+PWM_CFLAGS = "-DUSE_DEFAULT_PWM_FREQUENCY=1 -DPWM_DEBUG=1"
+
 do_compile() {
-    ${CC} ${CFLAGS} -fPIC -c pwm_control.c -o pwm_control.o
+    ${CC} ${CFLAGS} ${PWM_CFLAGS} -fPIC -c pwm_control.c -o pwm_control.o
     ${CC} -shared -o libpwm_control.so pwm_control.o ${LDFLAGS}
 }
 
@@ -25,5 +28,4 @@ FILES:${PN}-dbg = "${libdir}/.debug/*"
 
 # Skip QA checks
 INSANE_SKIP:${PN} = "dev-so"
-INSANE_SKIP:${PN}-dev = "dev-elf"
 INSANE_SKIP:${PN}-dev = "dev-elf"
