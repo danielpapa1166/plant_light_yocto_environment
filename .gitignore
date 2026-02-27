@@ -6,6 +6,7 @@ build-rpi/bitbake-cookerdaemon.log
 build-rpi/bitbake.lock
 build-rpi/bitbake.sock
 build-rpi/hashserve.sock
+build-rpi/build
 meta-raspberrypi
 poky
 *.o
