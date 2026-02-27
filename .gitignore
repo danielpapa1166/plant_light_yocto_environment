@@ -9,4 +9,5 @@ build-rpi/hashserve.sock
 build-rpi/build
 meta-raspberrypi
 poky
+.vscode
 *.o
