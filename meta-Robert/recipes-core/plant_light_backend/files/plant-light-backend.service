@@ -1,0 +1,14 @@
+# meta-Robert/recipes-core/plant_light_backend/files/plant-light-backend.service
+[Unit]
+Description=Plant Light Backend Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/plant-light-backend
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

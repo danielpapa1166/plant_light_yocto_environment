@@ -1,0 +1,15 @@
+# meta-Robert/recipes-core/plant_light_frontend/files/plant-light-frontend.service
+[Unit]
+Description=Plant Light Frontend Service
+After=network.target plant-light-backend.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/python3 /opt/plant-light-frontend/light_control_bottle_server.py
+WorkingDirectory=/opt/plant-light-frontend
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
